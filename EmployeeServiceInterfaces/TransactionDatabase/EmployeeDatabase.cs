@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Transactions;
 using System.Windows.Forms;
+using IsolationLevel = System.Transactions.IsolationLevel;
 
 namespace TransactionDatabase
 {
@@ -17,6 +19,22 @@ namespace TransactionDatabase
         public void employeeRegistration(string employee_name)
         {
             employeeData.Add(employee_name);
+            /*ConnectionStringSettings cnSettings = ConfigurationManager.ConnectionStrings["transaction_system"];
+            using (SqlConnection cn = new SqlConnection())
+            {
+                cn.ConnectionString = cnSettings.ConnectionString;
+                cn.Open();
+
+                var option = new TransactionOptions();
+                option.IsolationLevel = IsolationLevel.ReadCommitted;
+                option.Timeout = TimeSpan.FromMinutes(5);
+
+                using (var scope = new TransactionScope(TransactionScopeOption.Required, option))
+                {
+                    
+                }
+            }*/
+
         }
 
         public List<string> getEmployeeList()
@@ -26,13 +44,18 @@ namespace TransactionDatabase
             {
                 cn.ConnectionString = cnSettings.ConnectionString;
                 cn.Open();
+
                 SqlDataReader rdr = null;
 
-                using (SqlTransaction tran = cn.BeginTransaction())
+                var option = new TransactionOptions();
+                option.IsolationLevel = IsolationLevel.ReadCommitted;
+                option.Timeout = TimeSpan.FromMinutes(5);
+
+                using (var scope = new TransactionScope(TransactionScopeOption.Required, option))
                 {
                     try
                     {
-                        using (SqlCommand cmd = new SqlCommand("get_employee_info", cn, tran))
+                        using (SqlCommand cmd = new SqlCommand("get_employee_info", cn))
                         {
                             cmd.CommandType = CommandType.StoredProcedure;
                             rdr = cmd.ExecuteReader();
@@ -41,17 +64,17 @@ namespace TransactionDatabase
                                 Console.WriteLine(String.Format("{0}", rdr["employee_name"]));
                             }
                             rdr.Close();
-                            
-
                         }
+                        scope.Complete();
 
                     }
                     catch (Exception e)
                     {
-                        tran.Rollback();
+                        scope.Dispose();
                         MessageBox.Show(e.Message);
-                        
+
                     }
+
                 }
             }
 
