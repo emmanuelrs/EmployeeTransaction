@@ -1,19 +1,30 @@
 ﻿<Window x:Class="TransactionServiceClient.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        <Button Content="Enroll" Height="23" HorizontalAlignment="Left" Margin="184,12,0,0" 
+        Title="MainWindow" Height="441" Width="627">
+    <Grid Margin="0,0,2,4">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="243*"/>
+            <ColumnDefinition Width="374*"/>
+        </Grid.ColumnDefinitions>
+        <Button Content="Enroll" Height="23" HorizontalAlignment="Left" Margin="222,139,0,0" 
 
-		Name="enrollBtn" VerticalAlignment="Top" Width="75" Click="enrollBtn_Click" />
-        <TextBox Height="23" HorizontalAlignment="Left" Margin="12,12,0,0" Name="studentNameTxt" 
+		Name="Register" VerticalAlignment="Top" Width="152" Click="enrollBtn_Click" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.ColumnSpan="2" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="12,31,0,0" Name="studentNameTxt" Text="Name"
 
 		VerticalAlignment="Top" Width="152" />
         <Button Content="Get Enrolled Students" Height="23" HorizontalAlignment="Left" Margin="136,222,0,0" 
 
-		Name="getEnrollBtn" VerticalAlignment="Top" Width="123" Click="getEnrollBtn_Click" />
-        <TextBox Height="165" HorizontalAlignment="Left" Margin="12,51,0,0" Name="enrolledTxt" 
+		Name="getEnrollBtn" VerticalAlignment="Top" Width="123" Click="getEnrollBtn_Click" Grid.ColumnSpan="2" />
+        <TextBox Height="165" HorizontalAlignment="Left" Margin="12,199,0,0" Name="enrolledTxt" 
 
-		VerticalAlignment="Top" Width="247" />
+		VerticalAlignment="Top" Width="247" Grid.ColumnSpan="2" />
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="12,82,0,0" TextWrapping="Wrap" Text="ID" VerticalAlignment="Top" Width="152" Name="txtb_employee_id"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="222,31,0,0" TextWrapping="Wrap" Text="First Surname" VerticalAlignment="Top" Width="152" Name="txtb_employee_fsurname" Grid.ColumnSpan="2"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="222,82,0,0" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" Width="152" Name="txtb_employee_email" Grid.ColumnSpan="2"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="197,31,0,0" TextWrapping="Wrap" Text="Second Surname" VerticalAlignment="Top" Width="152" Name="txtb_employee_ssurname" Grid.Column="1"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="197,82,0,0" TextWrapping="Wrap" Text="Salary" VerticalAlignment="Top" Width="152" Name="txtb_employee_salary" Grid.Column="1"/>
+
+
     </Grid>
 </Window>

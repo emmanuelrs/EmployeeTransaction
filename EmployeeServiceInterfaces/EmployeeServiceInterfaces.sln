@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransactionServiceHost", "T
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransactionServiceClient", "TransactionServiceClient\TransactionServiceClient.csproj", "{14551920-6E09-4EE4-B522-FD86F8F2F1FF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransactionWebClient", "TransactionWebClient\TransactionWebClient.csproj", "{2D59F499-7D1F-44C9-A524-8AD8E2DBCA01}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{14551920-6E09-4EE4-B522-FD86F8F2F1FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{14551920-6E09-4EE4-B522-FD86F8F2F1FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{14551920-6E09-4EE4-B522-FD86F8F2F1FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D59F499-7D1F-44C9-A524-8AD8E2DBCA01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D59F499-7D1F-44C9-A524-8AD8E2DBCA01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D59F499-7D1F-44C9-A524-8AD8E2DBCA01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D59F499-7D1F-44C9-A524-8AD8E2DBCA01}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
