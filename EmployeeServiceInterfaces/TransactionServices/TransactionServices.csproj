@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{69F9540C-FAAB-47AB-8D82-AFD1BAE9A835}</ProjectGuid>
+    <ProjectGuid>{F9FC5078-0BEA-4B53-8C79-CB795B40527C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EmployeeServiceInterfaces</RootNamespace>
-    <AssemblyName>EmployeeServiceInterfaces</AssemblyName>
+    <RootNamespace>TransactionServices</RootNamespace>
+    <AssemblyName>TransactionServices</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -32,8 +32,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,8 +39,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IEmployeeTransactionService.cs" />
+    <Compile Include="EmployeeTransactionService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TransactionDatabase\TransactionDatabase.csproj">
+      <Project>{fc6e03f2-1b44-4985-bc52-38b49427597e}</Project>
+      <Name>TransactionDatabase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TransactionServiceInterfaces\TransactionServiceInterfaces.csproj">
+      <Project>{d7902e9b-7b9b-4e7b-af2a-bfd32bda0970}</Project>
+      <Name>TransactionServiceInterfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
