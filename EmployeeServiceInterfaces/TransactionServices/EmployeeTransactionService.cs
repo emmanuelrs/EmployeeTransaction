@@ -10,10 +10,12 @@ namespace TransactionServices
 {
     public class EmployeeTransactionService : IEmployeeTransactionService
     {
+        
         public void employee_registration(Employee employee)
         {
             EmployeeDatabase edbDatabase = new EmployeeDatabase();
             edbDatabase.employeeRegistration(employee.EmployeeName);
+            
         }
 
         public Employee[] GetEmployeesTransaction()
