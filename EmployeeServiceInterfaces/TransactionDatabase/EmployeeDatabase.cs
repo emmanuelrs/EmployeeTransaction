@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
@@ -25,15 +26,23 @@ namespace TransactionDatabase
             {
                 cn.ConnectionString = cnSettings.ConnectionString;
                 cn.Open();
+                SqlDataReader rdr = null;
+
                 using (SqlTransaction tran = cn.BeginTransaction())
                 {
                     try
                     {
-                        using (SqlCommand cmd = cn.CreateCommand())
+                        using (SqlCommand cmd = new SqlCommand("get_employee_info", cn, tran))
                         {
-                            Console.WriteLine("Hello");
-                            //cmd.Transaction = tran;
-                            //cmd.CommandText = 
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            rdr = cmd.ExecuteReader();
+                            while (rdr.Read())
+                            {
+                                Console.WriteLine(String.Format("{0}", rdr["employee_name"]));
+                            }
+                            rdr.Close();
+                            
+
                         }
 
                     }
