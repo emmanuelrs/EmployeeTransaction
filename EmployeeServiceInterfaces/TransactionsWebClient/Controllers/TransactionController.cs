@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TransactionsWebClient.Models;
 
 namespace TransactionsWebClient.Controllers
 {
@@ -14,6 +15,19 @@ namespace TransactionsWebClient.Controllers
             return View();
         }
 
+        [HttpPost]
+        public JsonResult EmployeeList()
+        {
+            try
+            {
+                List<Employee> employee = _repository.PersonRepository.GetAllPeople();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
         public ActionResult showEmployees()
         {
             return View();
