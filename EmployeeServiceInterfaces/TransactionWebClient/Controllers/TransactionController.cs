@@ -13,5 +13,10 @@ namespace TransactionWebClient.Controllers
         {
             return View();
         }
+
+        public ActionResult ShowEmployees()
+        {
+            return View();
+        }
     }
 }

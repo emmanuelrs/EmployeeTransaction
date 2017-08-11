@@ -14,5 +14,7 @@ namespace TransactionWebClient.Models
         public string employee_email { set; get; }
         public string employee_user { set; get; }
         public string employee_salary { set; get; }
+
+
     }
 }
