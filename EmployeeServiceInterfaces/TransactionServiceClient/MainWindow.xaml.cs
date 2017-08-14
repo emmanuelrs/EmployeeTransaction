@@ -36,7 +36,7 @@ namespace TransactionServiceClient
                 transactionServiceProxy.Open();
                 IEmployeeTransactionService transactionService = transactionServiceProxy.CreateChannel();
                 Employee emp = new Employee();
-                emp.EmployeeName = studentNameTxt.Text;
+                emp.employee_name = studentNameTxt.Text;
                 transactionService.employee_registration(emp);
                 transactionServiceProxy.Close();
             }
@@ -55,7 +55,7 @@ namespace TransactionServiceClient
 
                 foreach (Employee emp in addEmployeesList )
                 {
-                    enrolledTxt.AppendText(emp.EmployeeName + "\n");
+                    enrolledTxt.AppendText(emp.employee_name + "\n");
                     
                 }
                 transactionServiceProxy.Close();

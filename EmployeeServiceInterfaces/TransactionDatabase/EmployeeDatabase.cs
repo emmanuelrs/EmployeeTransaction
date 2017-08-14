@@ -10,16 +10,19 @@ using System.Transactions;
 using System.Windows.Forms;
 using IsolationLevel = System.Transactions.IsolationLevel;
 using System.Diagnostics;
+using TransactionServiceInterfaces;
 
 namespace TransactionDatabase
 {
     public class EmployeeDatabase
     {
-        private static List<string> employeeData = new List<string>();
+        private static List<Employee> employeeData = new List<Employee>();
+
+        public static List<Employee> employeeInfo = new List<Employee>();
 
         public void employeeRegistration(string employee_name)
         {
-            employeeData.Add(employee_name);
+            
             /*ConnectionStringSettings cnSettings = ConfigurationManager.ConnectionStrings["transaction_system"];
             using (SqlConnection cn = new SqlConnection())
             {
@@ -38,7 +41,7 @@ namespace TransactionDatabase
 
         }
 
-        public List<string> getEmployeeList()
+        public List<Employee> getEmployeeList()
         {
 
             if (!EventLog.SourceExists("EmployeesTransactions"))
@@ -94,11 +97,18 @@ namespace TransactionDatabase
 
                             while (rdr.Read())
                             {
+                                Employee emp = new Employee();
                                 Debug.Indent();
                                 Debug.WriteLine("Reading Results");
                                 Debug.Unindent();
-
-                                Console.WriteLine(String.Format("{0}", rdr["employee_name"]));
+                                emp.employee_id = rdr["employee_id"].ToString();
+                                emp.employee_name = rdr["employee_name"].ToString();
+                                emp.employee_first_surname = rdr["employee_first_surname"].ToString();
+                                emp.employee_second_surname = rdr["employee_second_surname"].ToString();
+                                emp.employee_email = rdr["employee_email"].ToString();
+                                emp.employee_username = rdr["employee_username"].ToString();
+                                emp.employee_salary = rdr["employee_salary"].ToString();
+                                employeeInfo.Add(emp);
                             }
                             rdr.Close();
                             Debug.Indent();
@@ -109,6 +119,7 @@ namespace TransactionDatabase
                         Debug.Indent();
                         Debug.WriteLine("Transaction Completed");
                         Debug.Unindent();
+                        return employeeInfo;
 
                     }
                     catch (Exception e)

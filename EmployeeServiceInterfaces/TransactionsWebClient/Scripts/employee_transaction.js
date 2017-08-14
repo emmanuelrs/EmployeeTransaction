@@ -2,48 +2,43 @@
     $('#PersonTableContainer').jtable({
         title: 'Employees Info',
         actions: {
-            listAction: '/GettingStarted/PersonList',
-            createAction: '/GettingStarted/CreatePerson',
-            updateAction: '/GettingStarted/UpdatePerson',
-            deleteAction: '/GettingStarted/DeletePerson'
+            listAction: '/Transaction/EmployeeList'//,
+            //createAction: '/GettingStarted/CreatePerson',
+            //updateAction: '/GettingStarted/UpdatePerson',
+            //deleteAction: '/GettingStarted/DeletePerson'
         },
         fields: {
-            PersonId: {
-                key: true,
-                list: false
-            },
-            EmployeeID: {
+            employee_id: {
+
                 title: 'Employee ID',
                 width: '14%'
             },
-            Name: {
+            employee_name: {
                 title: 'Employee Name',
                 width: '20%'
             },
-            FSurname: {
+            employee_first_surname: {
                 title: 'First Surname',
                 width: '14%'
             },
-            SSurname: {
+            employee_second_surname: {
                 title: 'Second Surname',
                 width: '14%'
             },
-            Email: {
+            employee_email: {
                 title: 'Email',
                 width: '18%'
             },
-
-            Usuario: {
+            employee_username: {
                 title: 'Usuario',
                 width: '14%'
             },
-
-            Salario: {
+            employee_salary: {
                 title: 'Salario',
                 width: '10%'
             }
         }
     });
 
-    /*$('#PersonTableContainer').jtable("load");*/
+    $('#PersonTableContainer').jtable("load");
 });

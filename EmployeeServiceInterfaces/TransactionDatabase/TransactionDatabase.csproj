@@ -45,6 +45,12 @@
     <Compile Include="EmployeeDatabase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TransactionServiceInterfaces\TransactionServiceInterfaces.csproj">
+      <Project>{d7902e9b-7b9b-4e7b-af2a-bfd32bda0970}</Project>
+      <Name>TransactionServiceInterfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

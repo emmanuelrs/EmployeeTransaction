@@ -15,19 +15,25 @@ namespace TransactionServiceInterfaces
         void employee_registration(Employee employee);
 
         [OperationContract]
-        Employee[] GetEmployeesTransaction();
+        List<Employee> GetEmployeesTransaction();
     }
 
     [DataContract]
     public class Employee
     {
-        private string employee_name;
-
         [DataMember]
-        public string EmployeeName
-        {
-            set { this.employee_name = value; }
-            get { return this.employee_name; }
-        }
+        public string employee_id { set; get; }
+        [DataMember]
+        public string employee_name { set; get; }
+        [DataMember]
+        public string employee_first_surname { set; get; }
+        [DataMember]
+        public string employee_second_surname { set; get; }
+        [DataMember]
+        public string employee_email { set; get; }
+        [DataMember]
+        public string employee_username { set; get; }
+        [DataMember]
+        public string employee_salary { set; get; }
     }
 }

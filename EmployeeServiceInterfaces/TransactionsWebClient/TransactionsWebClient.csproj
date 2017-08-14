@@ -39,6 +39,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -272,7 +273,9 @@
     <Content Include="Scripts\jtable\themes\metro\red\jtable.css" />
     <Content Include="Scripts\jtable\themes\metro\red\jtable.min.css" />
     <Content Include="Scripts\jtable\themes\metro\red\loading.gif" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Scripts\jtable\themes\metro\red\jtable.less" />
     <Content Include="Scripts\jtable\themes\metro\purple\jtable.less" />
     <Content Include="Scripts\jtable\themes\metro\pink\jtable.less" />
@@ -297,7 +300,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\TransactionController.cs" />
+    <Compile Include="fonts\TransactionController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -318,6 +321,17 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Controllers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TransactionServiceInterfaces\TransactionServiceInterfaces.csproj">
+      <Project>{d7902e9b-7b9b-4e7b-af2a-bfd32bda0970}</Project>
+      <Name>TransactionServiceInterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TransactionServices\TransactionServices.csproj">
+      <Project>{f9fc5078-0bea-4b53-8c79-cb795b40527c}</Project>
+      <Name>TransactionServices</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransactionServices", "Tran
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransactionServiceHost", "TransactionServiceHost\TransactionServiceHost.csproj", "{46944B6A-DCCC-4051-99F9-2A146FBEFF7F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransactionServiceClient", "TransactionServiceClient\TransactionServiceClient.csproj", "{14551920-6E09-4EE4-B522-FD86F8F2F1FF}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransactionsWebClient", "TransactionsWebClient\TransactionsWebClient.csproj", "{B1C4513D-2295-4FD5-A224-8CE7CEE6F8AE}"
 EndProject
 Global
@@ -37,10 +35,6 @@ Global
 		{46944B6A-DCCC-4051-99F9-2A146FBEFF7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46944B6A-DCCC-4051-99F9-2A146FBEFF7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{46944B6A-DCCC-4051-99F9-2A146FBEFF7F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{14551920-6E09-4EE4-B522-FD86F8F2F1FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{14551920-6E09-4EE4-B522-FD86F8F2F1FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{14551920-6E09-4EE4-B522-FD86F8F2F1FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{14551920-6E09-4EE4-B522-FD86F8F2F1FF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B1C4513D-2295-4FD5-A224-8CE7CEE6F8AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B1C4513D-2295-4FD5-A224-8CE7CEE6F8AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1C4513D-2295-4FD5-A224-8CE7CEE6F8AE}.Release|Any CPU.ActiveCfg = Release|Any CPU

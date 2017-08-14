@@ -14,24 +14,18 @@ namespace TransactionServices
         public void employee_registration(Employee employee)
         {
             EmployeeDatabase edbDatabase = new EmployeeDatabase();
-            edbDatabase.employeeRegistration(employee.EmployeeName);
+            edbDatabase.employeeRegistration(employee.employee_name);
             
         }
 
-        public Employee[] GetEmployeesTransaction()
+        public List<Employee> GetEmployeesTransaction()
         {
             EmployeeDatabase edbDatabase = new EmployeeDatabase();
-            List<string> employee_list = edbDatabase.getEmployeeList();
-            Employee[] employeeArray = new Employee[employee_list.Count];
 
-            for (int i = 0; i < employee_list.Count; i++)
-            {
-                Employee employee = new Employee();
-                employee.EmployeeName = employee_list[i];
-                employeeArray[i] = employee;
-
-            }
-            return employeeArray;
+            List<Employee> employee_list = edbDatabase.getEmployeeList();
+            
+            return employee_list;
+       
 
         }
     }
