@@ -18,7 +18,7 @@ namespace TransactionDatabase
     {
         private static List<Employee> employeeData = new List<Employee>();
 
-        public static List<Employee> employeeInfo = new List<Employee>();
+        public List<Employee> employeeInfo = new List<Employee>();
 
         public void employeeRegistration(string employee_name)
         {
