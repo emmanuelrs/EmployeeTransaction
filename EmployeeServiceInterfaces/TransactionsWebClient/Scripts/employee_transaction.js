@@ -2,8 +2,8 @@
     $('#PersonTableContainer').jtable({
         title: 'Employees Info',
         actions: {
-            listAction: '/Transaction/EmployeeList'//,
-            //createAction: '/GettingStarted/CreatePerson',
+            listAction: '/Transaction/EmployeeList',
+            createAction: '/GettingStarted/CreatePerson'
             //updateAction: '/GettingStarted/UpdatePerson',
             //deleteAction: '/GettingStarted/DeletePerson'
         },

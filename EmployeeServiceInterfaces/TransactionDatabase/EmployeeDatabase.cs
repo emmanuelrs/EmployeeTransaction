@@ -16,14 +16,13 @@ namespace TransactionDatabase
 {
     public class EmployeeDatabase
     {
-        private static List<Employee> employeeData = new List<Employee>();
-
+      
         public List<Employee> employeeInfo = new List<Employee>();
 
-        public void employeeRegistration(string employee_name)
+        public void employeeRegistration(Employee employee_obj)
         {
             
-            /*ConnectionStringSettings cnSettings = ConfigurationManager.ConnectionStrings["transaction_system"];
+            ConnectionStringSettings cnSettings = ConfigurationManager.ConnectionStrings["transaction_system"];
             using (SqlConnection cn = new SqlConnection())
             {
                 cn.ConnectionString = cnSettings.ConnectionString;
@@ -35,10 +34,30 @@ namespace TransactionDatabase
 
                 using (var scope = new TransactionScope(TransactionScopeOption.Required, option))
                 {
-                    
-                }
-            }*/
+                    try
+                    {
+                        using (SqlCommand cmd = new SqlCommand("employee_registration", cn))
+                        {
+                            cmd.Parameters.Add("@employee_id", employee_obj.employee_id);
+                            cmd.Parameters.Add("@employee_name", employee_obj.employee_name);
+                            cmd.Parameters.Add("@employee_first_surname", employee_obj.employee_first_surname);
+                            cmd.Parameters.Add("@employee_second_surname", employee_obj.employee_second_surname);
+                            cmd.Parameters.Add("@employee_email", employee_obj.employee_email);
+                            cmd.Parameters.Add("@employee_username", employee_obj.employee_username);
+                            cmd.Parameters.Add("@employee_salary", employee_obj.employee_salary);
 
+                        }
+
+                    }
+                    catch (Exception e)
+                    {
+                        scope.Dispose();
+                        MessageBox.Show(e.Message);
+
+                    }
+                    scope.Complete();
+                }
+            }
         }
 
         public List<Employee> getEmployeeList()
@@ -135,7 +154,7 @@ namespace TransactionDatabase
             }
             Debug.WriteLine("Get Info function done");
 
-            return employeeData;
+            return employeeInfo;
         }
     }
 }

@@ -14,7 +14,7 @@ namespace TransactionServices
         public void employee_registration(Employee employee)
         {
             EmployeeDatabase edbDatabase = new EmployeeDatabase();
-            edbDatabase.employeeRegistration(employee.employee_name);
+            edbDatabase.employeeRegistration(employee);
             
         }
 
