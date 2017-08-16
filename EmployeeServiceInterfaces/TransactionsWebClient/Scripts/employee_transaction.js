@@ -3,7 +3,7 @@
         title: 'Employees Info',
         actions: {
             listAction: '/Transaction/EmployeeList',
-            createAction: '/GettingStarted/CreatePerson'
+            createAction: '/Transaction/CreateEmployee'
             //updateAction: '/GettingStarted/UpdatePerson',
             //deleteAction: '/GettingStarted/DeletePerson'
         },

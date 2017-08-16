@@ -17,9 +17,9 @@ namespace TransactionDatabase
     public class EmployeeDatabase
     {
       
-        public List<Employee> employeeInfo = new List<Employee>();
+        private List<Employee> employeeInfo = new List<Employee>();
 
-        public void employeeRegistration(Employee employee_obj)
+        public void EmployeeRegistration(Employee employee_obj)
         {
             
             ConnectionStringSettings cnSettings = ConfigurationManager.ConnectionStrings["transaction_system"];
@@ -36,8 +36,12 @@ namespace TransactionDatabase
                 {
                     try
                     {
-                        using (SqlCommand cmd = new SqlCommand("employee_registration", cn))
+                        using (SqlCommand cmd = new SqlCommand())
                         {
+                            cmd.Connection = cn;
+                            cmd.CommandText = "employee_registration";
+                            cmd.CommandType = CommandType.StoredProcedure;
+
                             cmd.Parameters.Add("@employee_id", employee_obj.employee_id);
                             cmd.Parameters.Add("@employee_name", employee_obj.employee_name);
                             cmd.Parameters.Add("@employee_first_surname", employee_obj.employee_first_surname);
@@ -45,6 +49,8 @@ namespace TransactionDatabase
                             cmd.Parameters.Add("@employee_email", employee_obj.employee_email);
                             cmd.Parameters.Add("@employee_username", employee_obj.employee_username);
                             cmd.Parameters.Add("@employee_salary", employee_obj.employee_salary);
+
+                            cmd.ExecuteNonQuery();
 
                         }
 

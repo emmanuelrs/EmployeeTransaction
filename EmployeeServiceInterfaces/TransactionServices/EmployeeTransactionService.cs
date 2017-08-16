@@ -13,8 +13,10 @@ namespace TransactionServices
         
         public void employee_registration(Employee employee)
         {
+            
+
             EmployeeDatabase edbDatabase = new EmployeeDatabase();
-            edbDatabase.employeeRegistration(employee);
+            edbDatabase.EmployeeRegistration(employee);
             
         }
 
@@ -22,9 +24,9 @@ namespace TransactionServices
         {
             EmployeeDatabase edbDatabase = new EmployeeDatabase();
 
-            List<Employee> employee_list = edbDatabase.getEmployeeList();
+            List<Employee> employeeList = edbDatabase.getEmployeeList();
             
-            return employee_list;
+            return employeeList;
        
 
         }

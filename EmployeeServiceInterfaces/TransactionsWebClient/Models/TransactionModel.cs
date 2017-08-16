@@ -6,7 +6,7 @@ using System.Web;
 
 namespace TransactionsWebClient.Models
 {
-    public class Employee
+    public class Employees
     {
         [Required]
         public string employee_id { set; get; }
