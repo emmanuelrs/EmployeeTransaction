@@ -61,9 +61,18 @@ namespace TransactionsWebClient.Controllers
                     }
                     
 
-                    transactionService.employee_registration(employee);
+                    var result = transactionService.employee_registration(employee);
 
-                    return Json(new {Result = "OK", Record = employee});
+                    if (result)
+                    {
+                        return Json(new {Result = "OK", Record = employee});
+                    }
+                    else
+                    {
+                        return Json(new { Result = "ERROR", Message = "Invalid Regex Fields" });
+                    }
+                    
+                    
 
 
                 }

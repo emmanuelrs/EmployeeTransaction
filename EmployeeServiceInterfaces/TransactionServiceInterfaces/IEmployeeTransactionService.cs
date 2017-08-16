@@ -12,7 +12,7 @@ namespace TransactionServiceInterfaces
     public interface IEmployeeTransactionService
     {
         [OperationContract]
-        void employee_registration(Employee employee);
+        bool employee_registration(Employee employee);
 
         [OperationContract]
         List<Employee> GetEmployeesTransaction();
